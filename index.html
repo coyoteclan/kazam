@@ -1,107 +1,3 @@
-<!--<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>1st Year English Guess Paper 2025</title>
-    <meta name="title" content="1st Year English Guess Paper 2025" />
-    <meta name="description" content="Study guide for 1st Year English Guess Paper 2025, including important questions, applications, letters, poems, and stories." />
-    
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #1a202c;
-            color: #e2e8f0;
-            line-height: 1.6;
-        }
-        #content {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 2rem 1rem;
-        }
-        h1 {
-            color: #ffffff;
-            font-size: 2.5rem;
-            font-weight: 900;
-            margin-bottom: 2rem;
-            border-bottom: 2px solid #4a5568;
-            padding-bottom: 0.5rem;
-        }
-        h2 {
-            color: #e2e8f0;
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-        }
-        h3 {
-            color: #cbd5e0;
-            font-size: 1.4rem;
-            font-weight: 500;
-            margin-top: 1.5rem;
-            margin-bottom: 0.75rem;
-        }
-        h4, h5, h6 {
-            color: #a0aec0;
-            font-size: 1.2rem;
-            font-weight: 500;
-            margin-top: 1rem;
-            margin-bottom: 0.5rem;
-        }
-        ul, ol {
-            margin-bottom: 1.5rem;
-            padding-left: 2rem;
-        }
-        li {
-            margin-bottom: 0.5rem;
-        }
-        a {
-            color: #63b3ed;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        a:hover {
-            color: #90cdf4;
-        }
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #2d3748;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #4a5568;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #718096;
-        }
-    </style>
-</head>
-<body>
-    <div id="content" class="bg-gray-800 shadow-lg rounded-lg p-6"></div>
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script>
-        fetch("./english_guess.md")
-            .then(response => response.blob())
-            .then(blob => blob.text())
-            .then(markdown => {
-                const contentDiv = document.getElementById("content");
-                contentDiv.innerHTML = marked.parse(markdown);
-                // Enable checkboxes by removing the 'disabled' attribute
-                contentDiv.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
-                    checkbox.removeAttribute('disabled');
-                });
-            })
-            .catch(error => {
-                console.error('Error fetching Markdown:', error);
-                document.getElementById("content").innerHTML = '<p class="text-red-400">Error loading content. Please try again later.</p>';
-            });
-    </script>
-</body>
-</html> -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -116,30 +12,32 @@
       font-family: 'Roboto', sans-serif;
     }
     .checkbox-wrapper-11 {
-      --text: #414856;
-      --check: #4F29F0;
-      --disabled: #C3C8DE;
+      /* Swapped --text and --disabled for text color inversion */
+      --text: #C3C8DE; /* Was #414856 - Now color for UNCHECKED text (appears disabled-like) */
+      --disabled: #414856; /* Was #C3C8DE - Now color for CHECKED text (appears active-like) */
+      
+      /* Changed --check to parrot green */
+      --check: #39FF14; /* Parrot Green */
+      
       --border-radius: 10px;
-      /* --background is used by input[type=checkbox] but not defined, 
-         you might want to define it e.g. --background: #fff; or make it transparent */
       --background: transparent; 
       border-radius: var(--border-radius);
       position: relative;
-      padding: 5px 0; /* Adjusted padding for better alignment */
+      padding: 5px 0; 
       display: grid;
       grid-template-columns: 30px auto;
       align-items: center;
-      margin-bottom: 8px; /* Add some margin between items */
+      margin-bottom: 8px; 
     }
     .checkbox-wrapper-11 label {
-      color: var(--text);
+      color: var(--text); /* Initially uses the new --text color */
       position: relative;
       cursor: pointer;
       display: grid;
       align-items: center;
       width: fit-content;
       transition: color 0.3s ease;
-      padding-left: 5px; /* Add some space between checkbox and label */
+      padding-left: 5px; 
     }
     .checkbox-wrapper-11 label::before,
     .checkbox-wrapper-11 label::after {
@@ -149,17 +47,17 @@
     .checkbox-wrapper-11 label::before {
       height: 2px;
       width: 8px;
-      left: -27px; /* Adjusted based on grid-template-columns and input margin */
-      background: var(--check);
+      left: -27px; 
+      background: var(--check); /* Uses new parrot green */
       border-radius: 2px;
       transition: background 0.3s ease;
     }
     .checkbox-wrapper-11 label::after {
       height: 4px;
       width: 4px;
-      top: 50%; /* Center vertically */
-      transform: translateY(-50%); /* Center vertically */
-      left: -25px; /* Adjusted */
+      top: 50%; 
+      transform: translateY(-50%); 
+      left: -25px; 
       border-radius: 50%;
     }
     .checkbox-wrapper-11 input[type=checkbox] {
@@ -170,12 +68,12 @@
       width: 15px;
       outline: none;
       border: 0;
-      margin: 0; /* Removed default margin, handled by grid */
+      margin: 0; 
       cursor: pointer;
       background: var(--background);
       display: grid;
       align-items: center;
-      justify-self: center; /* Center checkbox in its grid cell */
+      justify-self: center; 
     }
     .checkbox-wrapper-11 input[type=checkbox]::before, 
     .checkbox-wrapper-11 input[type=checkbox]::after {
@@ -183,7 +81,7 @@
       position: absolute;
       height: 2px;
       top: auto;
-      background: var(--check);
+      background: var(--check); /* Uses new parrot green */
       border-radius: 2px;
     }
     .checkbox-wrapper-11 input[type=checkbox]::before {
@@ -203,15 +101,20 @@
       animation: check-02-11 0.4s ease forwards;
     }
     .checkbox-wrapper-11 input[type=checkbox]:checked + label {
-      color: var(--disabled);
+      color: var(--disabled); /* Uses new --disabled color when checked */
       animation: move-11 0.3s ease 0.1s forwards;
     }
     .checkbox-wrapper-11 input[type=checkbox]:checked + label::before {
-      background: var(--disabled);
+      /* This was background: var(--disabled); 
+         If you want the strikethrough to also be parrot green when checked, 
+         change it to var(--check). If you want it to match the new --disabled text color, keep as is.
+         Let's try keeping it consistent with the new --disabled text color for the strikethrough.
+      */
+      background: var(--disabled); 
       animation: slice-11 0.4s ease forwards;
     }
     .checkbox-wrapper-11 input[type=checkbox]:checked + label::after {
-      animation: firework-11 0.5s ease forwards 0.1s;
+      animation: firework-11 0.5s ease forwards 0.1s; /* Firework will use --check (parrot green) */
     }
 
     /* Keyframes for checkbox animations */
@@ -252,8 +155,8 @@
         transform: rotate(45deg);
       }
       100% {
-        width: 5px; /* Adjusted from 6px to fit better */
-        top: 8px; /* Adjusted for centering */
+        width: 5px; 
+        top: 8px; 
         transform: rotate(45deg);
       }
     }
@@ -274,12 +177,12 @@
         transform: rotate(-45deg);
       }
       100% {
-        width: 10px; /* Adjusted from 12px */
-        top: 8px; /* Adjusted for centering */
+        width: 10px; 
+        top: 8px; 
         transform: rotate(-45deg);
       }
     }
-    @keyframes firework-11 {
+    @keyframes firework-11 { /* This animation uses var(--check) for its box-shadow color */
       0% {
         opacity: 1;
         box-shadow: 0 0 0 -2px var(--check), 0 0 0 -2px var(--check), 0 0 0 -2px var(--check), 0 0 0 -2px var(--check), 0 0 0 -2px var(--check), 0 0 0 -2px var(--check);
@@ -347,20 +250,15 @@
           contentDiv.innerHTML = marked.parse(md);
 
           let counter = 0;
-          // Query for checkboxes that are direct children of list items,
-          // as generated by marked.js for task lists.
           contentDiv.querySelectorAll('li > input[type="checkbox"]').forEach(cb => {
-            const originalParentLi = cb.parentNode; // This will be the <li> element
+            const originalParentLi = cb.parentNode; 
 
-            // The text for the label is usually the next sibling of the checkbox
-            // or the remaining content of the <li>
             let labelText = '';
             let currentNode = cb.nextSibling;
             while(currentNode) {
                 if (currentNode.nodeType === Node.TEXT_NODE) {
                     labelText += currentNode.textContent;
                 }
-                // If there are other elements like <strong> or <em>, include their text
                 else if (currentNode.nodeType === Node.ELEMENT_NODE) {
                     labelText += currentNode.textContent;
                 }
@@ -368,31 +266,24 @@
             }
             labelText = labelText.trim();
             
-            // Create wrapper
             const wrapper = document.createElement('div');
             wrapper.className = 'checkbox-wrapper-11';
             
-            // Give checkbox an ID and remove disabled attribute
             const id = `cb-${counter++}`;
             cb.id = id;
-            cb.removeAttribute('disabled'); // Marked adds disabled by default
+            cb.removeAttribute('disabled'); 
             
-            // Create <label>
             const lbl = document.createElement('label');
             lbl.htmlFor = id;
             lbl.textContent = labelText;
             
-            // Assemble the new structure: wrapper contains checkbox and label
-            wrapper.appendChild(cb); // cb is now a child of wrapper
+            wrapper.appendChild(cb); 
             wrapper.appendChild(lbl);
             
-            // Clear the original <li> content
-            // This is important because we are replacing the structure within li
             while (originalParentLi.firstChild) {
                 originalParentLi.removeChild(originalParentLi.firstChild);
             }
             
-            // Add the new wrapper to the <li>
             originalParentLi.appendChild(wrapper);
 
           });
