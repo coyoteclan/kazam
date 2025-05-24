@@ -9,10 +9,16 @@
         <meta name="description" content="kazam" />
     </head>
     <body>
-      <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-      <script>
-        document.getElementById('content').innerHTML =
-          marked.parse('# Hello Ayan \n\nRendered by **marked**.');
-      </script>
+        <div id="content"></div>
+        <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+        <script>
+          fetch("./english_guess.md")      // The path to the raw Markdown file
+            .then(response => response.blob())  // Unwrap to a blob...
+            .then(blob => blob.text())          // ...then to raw text...
+            .then(markdown => {                 // ...then pass the raw text into marked.parse
+              document.getElementById("content").innerHTML = marked.parse(markdown);
+            });
+        </script>
+
     </body>
 </html>
