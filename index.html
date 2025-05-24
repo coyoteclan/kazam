@@ -75,15 +75,26 @@
       align-items: center;
       justify-self: center; 
     }
-    .checkbox-wrapper-11 input[type=checkbox]::before, 
+    /*.checkbox-wrapper-11 input[type=checkbox]::before, 
     .checkbox-wrapper-11 input[type=checkbox]::after {
       content: "";
       position: absolute;
       height: 2px;
       top: auto;
-      background: var(--check); /* Uses new parrot green */
+      background: var(--check);
       border-radius: 2px;
+    }*/
+    .checkbox-wrapper-11 input[type=checkbox]::before,
+    .checkbox-wrapper-11 input[type=checkbox]::after {
+      content: "";
+      position: absolute;
+      height: 2px;
+      top: 50%;
+      background: var(--check);
+      border-radius: 2px;
+      transform: translateY(-50%);
     }
+
     .checkbox-wrapper-11 input[type=checkbox]::before {
       width: 0;
       right: 60%;
@@ -138,7 +149,7 @@
         padding-left: 0px;
       }
     }
-    @keyframes check-01-11 {
+    /*@keyframes check-01-11 {
       0% {
         width: 4px;
         top: auto;
@@ -181,6 +192,18 @@
         top: 8px; 
         transform: rotate(-45deg);
       }
+    }*/
+    @keyframes check-01-11 {
+      0%   { width: 4px;  transform: translateY(-50%) rotate(0);     }
+      50%  { width: 0;     transform: translateY(-50%) rotate(0);     }
+      51%  { width: 0;     transform: translateY(-50%) rotate(45deg); }
+      100% { width: 5px;   transform: translateY(-50%) rotate(45deg); }
+    }
+    @keyframes check-02-11 {
+      0%   { width: 4px;  transform: translateY(-50%) rotate(0);      }
+      50%  { width: 0;     transform: translateY(-50%) rotate(0);      }
+      51%  { width: 0;     transform: translateY(-50%) rotate(-45deg); }
+      100% { width: 10px;  transform: translateY(-50%) rotate(-45deg); }
     }
     @keyframes firework-11 { /* This animation uses var(--check) for its box-shadow color */
       0% {
