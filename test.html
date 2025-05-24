@@ -154,6 +154,8 @@
 - Normal list item
         `;
         document.getElementById("content").innerHTML = marked.parse(markdown);
+        document.getElementById("content").querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+                    checkbox.removeAttribute('disabled');
     </script>
 </body>
 </html>
