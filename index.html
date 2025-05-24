@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -101,4 +101,162 @@
             });
     </script>
 </body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1st Year English Guess Paper 2025</title>
+  <meta name="description" content="Study guide for 1st Year English Guess Paper 2025…" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+  <style>
+    /* ←––– paste your entire “checkbox-wrapper-11” CSS here –––→ */
+    .checkbox-wrapper-11 {
+      --text: #414856;
+      --check: #4F29F0;
+      --disabled: #C3C8DE;
+      --border-radius: 10px;
+      border-radius: var(--border-radius);
+      position: relative;
+      padding: 5px;
+      display: grid;
+      grid-template-columns: 30px auto;
+      align-items: center;
+    }
+    .checkbox-wrapper-11 label {
+      color: var(--text);
+      position: relative;
+      cursor: pointer;
+      display: grid;
+      align-items: center;
+      width: fit-content;
+      transition: color 0.3s ease;
+    }
+    .checkbox-wrapper-11 label::before,
+    .checkbox-wrapper-11 label::after {
+      content: "";
+      position: absolute;
+    }
+    .checkbox-wrapper-11 label::before {
+      height: 2px;
+      width: 8px;
+      left: -27px;
+      background: var(--check);
+      border-radius: 2px;
+      transition: background 0.3s ease;
+    }
+    .checkbox-wrapper-11 label::after {
+      height: 4px;
+      width: 4px;
+      top: 8px;
+      left: -25px;
+      border-radius: 50%;
+    }
+    .checkbox-wrapper-11 input[type=checkbox] {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      position: relative;
+      height: 15px;
+      width: 15px;
+      outline: none;
+      border: 0;
+      margin: 0 15px 0 0;
+      cursor: pointer;
+      background: var(--background);
+      display: grid;
+      align-items: center;
+    }
+    .checkbox-wrapper-11 input[type=checkbox]::before, 
+    .checkbox-wrapper-11 input[type=checkbox]::after {
+      content: "";
+      position: absolute;
+      height: 2px;
+      top: auto;
+      background: var(--check);
+      border-radius: 2px;
+    }
+    .checkbox-wrapper-11 input[type=checkbox]::before {
+      width: 0;
+      right: 60%;
+      transform-origin: right bottom;
+    }
+    .checkbox-wrapper-11 input[type=checkbox]::after {
+      width: 0;
+      left: 40%;
+      transform-origin: left bottom;
+    }
+    .checkbox-wrapper-11 input[type=checkbox]:checked::before {
+      animation: check-01-11 0.4s ease forwards;
+    }
+    .checkbox-wrapper-11 input[type=checkbox]:checked::after {
+      animation: check-02-11 0.4s ease forwards;
+    }
+    .checkbox-wrapper-11 input[type=checkbox]:checked + label {
+      color: var(--disabled);
+      animation: move-11 0.3s ease 0.1s forwards;
+    }
+    .checkbox-wrapper-11 input[type=checkbox]:checked + label::before {
+      background: var(--disabled);
+      animation: slice-11 0.4s ease forwards;
+    }
+    .checkbox-wrapper-11 input[type=checkbox]:checked + label::after {
+      animation: firework-11 0.5s ease forwards 0.1s;
+    }
+
+    /* keyframes… (include all your @keyframes move-11, slice-11, check-01-11, check-02-11, firework-11) */
+  </style>
+</head>
+<body class="bg-gray-900 text-gray-200">
+  <div id="content" class="bg-gray-800 shadow-lg rounded-lg p-6"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script>
+    fetch("./english_guess.md")
+      .then(r => r.text())
+      .then(md => {
+        const contentDiv = document.getElementById("content");
+        contentDiv.innerHTML = marked.parse(md);
+
+        // Find every Markdown checkbox (they come in as <input disabled>) 
+        // and wrap them in your fancy markup:
+        let counter = 0;
+        contentDiv.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+          const textNode = cb.nextSibling;  // the text “ Task description…”
+          const labelText = textNode ? textNode.textContent.trim() : '';
+          
+          // create wrapper
+          const wrapper = document.createElement('div');
+          wrapper.className = 'checkbox-wrapper-11';
+          
+          // give checkbox an ID
+          const id = `cb-${counter++}`;
+          cb.id = id;
+          cb.removeAttribute('disabled');
+          
+          // create <label>
+          const lbl = document.createElement('label');
+          lbl.htmlFor = id;
+          lbl.textContent = labelText;
+          
+          // assemble
+          wrapper.appendChild(cb);
+          wrapper.appendChild(lbl);
+          // replace original
+          if (textNode) wrapper.appendChild(textNode); // remove stray text
+          cb.parentNode.replaceChild(wrapper, cb);
+        });
+      })
+      .catch(err => {
+        console.error(err);
+        document.getElementById("content").innerHTML = 
+          '<p class="text-red-400">Error loading content…</p>';
+      });
+  </script>
+</body>
 </html>
+
