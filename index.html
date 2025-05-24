@@ -102,7 +102,6 @@
     </script>
 </body>
 </html> -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -112,21 +111,25 @@
   <meta name="description" content="Study guide for 1st Year English Guess Paper 2025…" />
 
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-
-  <style>
-    /* ←––– paste your entire “checkbox-wrapper-11” CSS here –––→ */
+  <script src="https://cdn.tailwindcss.com"></script> <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+    }
     .checkbox-wrapper-11 {
       --text: #414856;
       --check: #4F29F0;
       --disabled: #C3C8DE;
       --border-radius: 10px;
+      /* --background is used by input[type=checkbox] but not defined, 
+         you might want to define it e.g. --background: #fff; or make it transparent */
+      --background: transparent; 
       border-radius: var(--border-radius);
       position: relative;
-      padding: 5px;
+      padding: 5px 0; /* Adjusted padding for better alignment */
       display: grid;
       grid-template-columns: 30px auto;
       align-items: center;
+      margin-bottom: 8px; /* Add some margin between items */
     }
     .checkbox-wrapper-11 label {
       color: var(--text);
@@ -136,6 +139,7 @@
       align-items: center;
       width: fit-content;
       transition: color 0.3s ease;
+      padding-left: 5px; /* Add some space between checkbox and label */
     }
     .checkbox-wrapper-11 label::before,
     .checkbox-wrapper-11 label::after {
@@ -145,7 +149,7 @@
     .checkbox-wrapper-11 label::before {
       height: 2px;
       width: 8px;
-      left: -27px;
+      left: -27px; /* Adjusted based on grid-template-columns and input margin */
       background: var(--check);
       border-radius: 2px;
       transition: background 0.3s ease;
@@ -153,8 +157,9 @@
     .checkbox-wrapper-11 label::after {
       height: 4px;
       width: 4px;
-      top: 8px;
-      left: -25px;
+      top: 50%; /* Center vertically */
+      transform: translateY(-50%); /* Center vertically */
+      left: -25px; /* Adjusted */
       border-radius: 50%;
     }
     .checkbox-wrapper-11 input[type=checkbox] {
@@ -165,11 +170,12 @@
       width: 15px;
       outline: none;
       border: 0;
-      margin: 0 15px 0 0;
+      margin: 0; /* Removed default margin, handled by grid */
       cursor: pointer;
       background: var(--background);
       display: grid;
       align-items: center;
+      justify-self: center; /* Center checkbox in its grid cell */
     }
     .checkbox-wrapper-11 input[type=checkbox]::before, 
     .checkbox-wrapper-11 input[type=checkbox]::after {
@@ -208,55 +214,198 @@
       animation: firework-11 0.5s ease forwards 0.1s;
     }
 
-    /* keyframes… (include all your @keyframes move-11, slice-11, check-01-11, check-02-11, firework-11) */
+    /* Keyframes for checkbox animations */
+    @keyframes move-11 {
+      50% {
+        padding-left: 8px;
+        padding-right: 0px;
+      }
+      100% {
+        padding-right: 4px;
+      }
+    }
+    @keyframes slice-11 {
+      60% {
+        width: 100%;
+        left: 4px;
+      }
+      100% {
+        width: 100%;
+        left: -2px;
+        padding-left: 0px;
+      }
+    }
+    @keyframes check-01-11 {
+      0% {
+        width: 4px;
+        top: auto;
+        transform: rotate(0);
+      }
+      50% {
+        width: 0px;
+        top: auto;
+        transform: rotate(0);
+      }
+      51% {
+        width: 0px;
+        top: 8px;
+        transform: rotate(45deg);
+      }
+      100% {
+        width: 5px; /* Adjusted from 6px to fit better */
+        top: 8px; /* Adjusted for centering */
+        transform: rotate(45deg);
+      }
+    }
+    @keyframes check-02-11 {
+      0% {
+        width: 4px;
+        top: auto;
+        transform: rotate(0);
+      }
+      50% {
+        width: 0px;
+        top: auto;
+        transform: rotate(0);
+      }
+      51% {
+        width: 0px;
+        top: 8px;
+        transform: rotate(-45deg);
+      }
+      100% {
+        width: 10px; /* Adjusted from 12px */
+        top: 8px; /* Adjusted for centering */
+        transform: rotate(-45deg);
+      }
+    }
+    @keyframes firework-11 {
+      0% {
+        opacity: 1;
+        box-shadow: 0 0 0 -2px var(--check), 0 0 0 -2px var(--check), 0 0 0 -2px var(--check), 0 0 0 -2px var(--check), 0 0 0 -2px var(--check), 0 0 0 -2px var(--check);
+      }
+      30% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+        box-shadow: 0 -15px 0 0px var(--check), 14px -8px 0 0px var(--check), 14px 8px 0 0px var(--check), 0 15px 0 0px var(--check), -14px 8px 0 0px var(--check), -14px -8px 0 0px var(--check);
+      }
+    }
+
+    /* Styles for Markdown content */
+    #content ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    #content li {
+      /* The wrapper will handle layout, so li doesn't need much */
+    }
+    #content h1, #content h2, #content h3, #content h4 {
+        margin-top: 1.5em;
+        margin-bottom: 0.5em;
+        font-weight: 600;
+    }
+    #content h1 { font-size: 2em; }
+    #content h2 { font-size: 1.5em; }
+    #content h3 { font-size: 1.25em; }
+    #content p { margin-bottom: 1em; }
+
   </style>
 </head>
-<body class="bg-gray-900 text-gray-200">
-  <div id="content" class="bg-gray-800 shadow-lg rounded-lg p-6"></div>
+<body class="bg-gray-900 text-gray-200 min-h-screen p-4 md:p-8 flex justify-center">
+  <div class="w-full max-w-3xl">
+    <header class="mb-8 text-center">
+        <h1 class="text-4xl font-bold text-purple-400">1st Year English Guess Paper 2025</h1>
+        <p class="text-lg text-gray-400">Your comprehensive study guide</p>
+    </header>
+    <div id="content" class="bg-gray-800 shadow-2xl rounded-lg p-6 md:p-8">
+      <p>Loading content...</p>
+    </div>
+    <footer class="text-center mt-8 text-gray-500">
+        <p>&copy; 2025 Guess Papers Inc. All rights reserved.</p>
+    </footer>
+  </div>
 
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <script>
-    fetch("./english_guess.md")
-      .then(r => r.text())
-      .then(md => {
-        const contentDiv = document.getElementById("content");
-        contentDiv.innerHTML = marked.parse(md);
+    // Ensure the DOM is fully loaded before trying to fetch and manipulate
+    document.addEventListener('DOMContentLoaded', () => {
+      fetch("./english_guess.md") // Make sure this path is correct
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          return response.text();
+        })
+        .then(md => {
+          const contentDiv = document.getElementById("content");
+          if (!contentDiv) {
+            console.error("Content div not found!");
+            return;
+          }
+          contentDiv.innerHTML = marked.parse(md);
 
-        // Find every Markdown checkbox (they come in as <input disabled>) 
-        // and wrap them in your fancy markup:
-        let counter = 0;
-        contentDiv.querySelectorAll('input[type="checkbox"]').forEach(cb => {
-          const textNode = cb.nextSibling;  // the text “ Task description…”
-          const labelText = textNode ? textNode.textContent.trim() : '';
-          
-          // create wrapper
-          const wrapper = document.createElement('div');
-          wrapper.className = 'checkbox-wrapper-11';
-          
-          // give checkbox an ID
-          const id = `cb-${counter++}`;
-          cb.id = id;
-          cb.removeAttribute('disabled');
-          
-          // create <label>
-          const lbl = document.createElement('label');
-          lbl.htmlFor = id;
-          lbl.textContent = labelText;
-          
-          // assemble
-          wrapper.appendChild(cb);
-          wrapper.appendChild(lbl);
-          // replace original
-          if (textNode) wrapper.appendChild(textNode); // remove stray text
-          cb.parentNode.replaceChild(wrapper, cb);
+          let counter = 0;
+          // Query for checkboxes that are direct children of list items,
+          // as generated by marked.js for task lists.
+          contentDiv.querySelectorAll('li > input[type="checkbox"]').forEach(cb => {
+            const originalParentLi = cb.parentNode; // This will be the <li> element
+
+            // The text for the label is usually the next sibling of the checkbox
+            // or the remaining content of the <li>
+            let labelText = '';
+            let currentNode = cb.nextSibling;
+            while(currentNode) {
+                if (currentNode.nodeType === Node.TEXT_NODE) {
+                    labelText += currentNode.textContent;
+                }
+                // If there are other elements like <strong> or <em>, include their text
+                else if (currentNode.nodeType === Node.ELEMENT_NODE) {
+                    labelText += currentNode.textContent;
+                }
+                currentNode = currentNode.nextSibling;
+            }
+            labelText = labelText.trim();
+            
+            // Create wrapper
+            const wrapper = document.createElement('div');
+            wrapper.className = 'checkbox-wrapper-11';
+            
+            // Give checkbox an ID and remove disabled attribute
+            const id = `cb-${counter++}`;
+            cb.id = id;
+            cb.removeAttribute('disabled'); // Marked adds disabled by default
+            
+            // Create <label>
+            const lbl = document.createElement('label');
+            lbl.htmlFor = id;
+            lbl.textContent = labelText;
+            
+            // Assemble the new structure: wrapper contains checkbox and label
+            wrapper.appendChild(cb); // cb is now a child of wrapper
+            wrapper.appendChild(lbl);
+            
+            // Clear the original <li> content
+            // This is important because we are replacing the structure within li
+            while (originalParentLi.firstChild) {
+                originalParentLi.removeChild(originalParentLi.firstChild);
+            }
+            
+            // Add the new wrapper to the <li>
+            originalParentLi.appendChild(wrapper);
+
+          });
+        })
+        .catch(err => {
+          console.error("Error fetching or processing markdown:", err);
+          const contentDiv = document.getElementById("content");
+          if (contentDiv) {
+            contentDiv.innerHTML = 
+              `<p class="text-red-400">Error loading content. Please check the console for details. Ensure 'english_guess.md' is in the same directory or provide the correct path.</p>`;
+          }
         });
-      })
-      .catch(err => {
-        console.error(err);
-        document.getElementById("content").innerHTML = 
-          '<p class="text-red-400">Error loading content…</p>';
-      });
+    });
   </script>
 </body>
 </html>
-
