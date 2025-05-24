@@ -4,19 +4,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>1st Year English Guess Paper 2025</title>
-    <!-- Primary Meta Tags -->
     <meta name="title" content="1st Year English Guess Paper 2025" />
     <meta name="description" content="Study guide for 1st Year English Guess Paper 2025, including important questions, applications, letters, poems, and stories." />
     
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <script type="importmap">
-    {
-      "imports": {
-        "@material/web/": "https://esm.run/@material/web/"
-      }
-    }
-    </script>
     <style>
         body {
             font-family: 'Roboto', sans-serif;
@@ -96,7 +88,12 @@
             .then(response => response.blob())
             .then(blob => blob.text())
             .then(markdown => {
-                document.getElementById("content").innerHTML = marked.parse(markdown);
+                const contentDiv = document.getElementById("content");
+                contentDiv.innerHTML = marked.parse(markdown);
+                // Enable checkboxes by removing the 'disabled' attribute
+                contentDiv.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+                    checkbox.removeAttribute('disabled');
+                });
             })
             .catch(error => {
                 console.error('Error fetching Markdown:', error);
