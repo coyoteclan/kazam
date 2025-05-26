@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qt Licensing & GPLv3: A Visual Guide</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            background-color: #F8F9FA; /* Light Background */
+            color: #212529; /* Text Color */
+        }
+        .brand-primary { color: #00529B; } /* Deep Blue */
+        .brand-secondary { color: #007BFF; } /* Bright Blue */
+        .brand-accent-orange { color: #FFA500; }
+        .brand-accent-green { color: #28A745; }
+        .bg-brand-primary { background-color: #00529B; }
+        .bg-brand-secondary { background-color: #007BFF; }
+        .border-brand-primary { border-color: #00529B; }
+        .border-brand-accent-orange { border-color: #FFA500; }
+
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px; /* Default max-width */
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px; 
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .section-title {
+            font-size: 2.25rem; /* text-4xl */
+            font-weight: 700; /* bold */
+            margin-bottom: 1rem; /* mb-4 */
+            text-align: center;
+            color: #00529B; /* Deep Blue */
+        }
+        .card {
+            background-color: white;
+            border-radius: 0.5rem; /* rounded-lg */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+            padding: 1.5rem; /* p-6 */
+            margin-bottom: 1.5rem; /* mb-6 */
+        }
+        .stat-big-number {
+            font-size: 3rem; /* text-5xl */
+            font-weight: 800; /* extrabold */
+            color: #007BFF; /* Bright Blue */
+        }
+        .flowchart-step {
+            border: 2px solid #007BFF; /* Bright Blue */
+            padding: 1rem;
+            border-radius: 0.375rem; /* rounded-md */
+            text-align: center;
+            background-color: #E6F2FF; /* Light blue tint */
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .flowchart-arrow {
+            font-size: 2rem;
+            color: #007BFF; /* Bright Blue */
+            margin: 0.5rem 0;
+            text-align: center;
+        }
+        .swot-grid {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 1rem;
+        }
+        @media (min-width: 768px) {
+            .swot-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        .swot-item {
+            padding: 1rem;
+            border-radius: 0.375rem; /* rounded-md */
+        }
+        .swot-strengths { background-color: #D4EDDA; color: #155724; border: 1px solid #C3E6CB;} /* Green */
+        .swot-weaknesses { background-color: #F8D7DA; color: #721C24; border: 1px solid #F5C6CB;} /* Red */
+        .swot-opportunities { background-color: #FFF3CD; color: #856404; border: 1px solid #FFEEBA;} /* Yellow */
+        .swot-threats { background-color: #D1ECF1; color: #0C5460; border: 1px solid #BEE5EB;} /* Cyan */
+
+        .tooltip-multiline-title {
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <header class="bg-brand-primary text-white py-8 text-center">
+        <div class="container mx-auto px-4">
+            <h1 class="text-4xl md:text-5xl font-bold mb-2">Developing with Qt: GPLv3, Fees, and Freedom</h1>
+            <p class="text-lg md:text-xl">A Visual Guide to Navigating Qt's Open Source Licensing</p>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8">
+
+        <section id="intro" class="mb-12">
+            <div class="card text-center">
+                <h2 class="text-2xl font-semibold brand-primary mb-3">The Core Question: Qt for Free, Without Worries?</h2>
+                <p class="text-lg text-gray-700">
+                    Utilizing the powerful Qt framework for software development often brings up critical questions about licensing. Can you leverage Qt's capabilities without incurring direct fees? And more importantly, can you do so without getting entangled in complex legal "worries"? This guide visually breaks down the key aspects of Qt's open-source licensing, focusing on GPLv3 and LGPLv3, to help you make informed decisions.
+                </p>
+            </div>
+        </section>
+
+        <section id="gpl-vs-lgpl" class="mb-12">
+            <h2 class="section-title">GPLv3 vs. LGPLv3: Understanding the Landscape</h2>
+            <p class="text-center text-gray-700 mb-6">The GNU General Public License v3 (GPLv3) and Lesser General Public License v3 (LGPLv3) are central to Qt's open-source offering. Their differences are crucial for your project's licensing strategy.</p>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="card">
+                    <h3 class="text-xl font-semibold brand-primary mb-3 text-center">GNU GPLv3 (General Public License)</h3>
+                    <ul class="list-disc list-inside space-y-2 text-gray-700">
+                        <li><strong>Strong Copyleft:</strong> If your software links to or is a derivative of GPLv3 code, your entire combined work generally becomes subject to GPLv3. This is often called its "infectious" nature.</li>
+                        <li><strong>Four Freedoms:</strong> Guarantees users the freedom to use, study, share, and modify the software.</li>
+                        <li><strong>Anti-Tivoization:</strong> Requires that users can run modified versions of the software on their hardware, preventing device lockdown.</li>
+                        <li><strong>Source Code Obligation:</strong> Mandates providing the complete corresponding source code upon distribution of the software.</li>
+                        <li><strong>Patent Clauses:</strong> Includes provisions to protect users from patent aggression.</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3 class="text-xl font-semibold brand-primary mb-3 text-center">GNU LGPLv3 (Lesser General Public License)</h3>
+                    <ul class="list-disc list-inside space-y-2 text-gray-700">
+                        <li><strong>Weaker Copyleft:</strong> Allows linking with non-(L)GPLed programs (e.g., proprietary applications) without forcing the entire application to become LGPL. The LGPL library itself remains free.</li>
+                        <li><strong>Library Focused:</strong> Designed to allow wider adoption of free software libraries.</li>
+                        <li><strong>User Modification Rights:</strong> Users must be able to modify and re-link the LGPL-licensed library with your application.</li>
+                        <li><strong>Source Code Obligation (for Library):</strong> Requires providing the source code of the LGPL library and any modifications to it.</li>
+                        <li><strong>Compatibility:</strong> LGPLv3 is compatible with GPLv3, meaning LGPLv3 code can be incorporated into a GPLv3 project.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="qt-licensing-model" class="mb-12">
+            <h2 class="section-title">Qt's Dual Licensing & Module Availability</h2>
+            <p class="text-center text-gray-700 mb-6">Qt operates on a dual-licensing model, offering flexibility but requiring careful module selection. You either contribute back by adhering to open-source obligations or purchase a commercial license.</p>
+            <div class="grid md:grid-cols-2 gap-6 items-start">
+                <div class="card">
+                    <h3 class="text-xl font-semibold brand-primary mb-4 text-center">Qt's Dual Licensing Paths</h3>
+                    <div class="space-y-4">
+                        <div class="flowchart-step"><strong>Your Project Needs Qt</strong></div>
+                        <div class="flowchart-arrow">▼</div>
+                        <div class="flowchart-step">Are you willing to comply with GPLv3/LGPLv3 obligations (source code, user rights)?</div>
+                        <div class="grid grid-cols-2 gap-2 items-center">
+                            <div class="flowchart-arrow">↙ (Yes)</div>
+                            <div class="flowchart-arrow">↘ (No/Need More)</div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2">
+                            <div class="flowchart-step bg-green-100 border-green-500">Use Open Source Qt (LGPLv3/GPLv3) - No direct fee</div>
+                            <div class="flowchart-step bg-yellow-100 border-yellow-500">Consider Commercial Qt License - Fee-based, more control, support</div>
+                        </div>
+                    </div>
+                    <p class="mt-4 text-sm text-gray-600">This is a simplified decision flow. The choice depends on your project's specific requirements, distribution model, and willingness to meet open-source terms.</p>
+                </div>
+                <div class="card">
+                    <h3 class="text-xl font-semibold brand-primary mb-3 text-center">Qt Module Licensing (Illustrative)</h3>
+                    <p class="text-gray-700 mb-4 text-center">Not all Qt modules are licensed the same. Some are LGPLv3, some GPLv3-only, and others are exclusive to commercial licenses.</p>
+                    <div class="chart-container h-72 md:h-80">
+                        <canvas id="qtModuleChart"></canvas>
+                    </div>
+                    <p class="mt-4 text-sm text-gray-600">This chart is illustrative. Always verify the specific license of each Qt module you intend to use. Some essential modules like Core and GUI are LGPLv3. Some add-ons might be GPLv3, and specialized tools/modules (e.g., Qt for MCUs, Safe Renderer) are often commercial.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="no-fee-path" class="mb-12">
+            <h2 class="section-title">The "No Fee" Path: What It Really Means</h2>
+            <p class="text-center text-gray-700 mb-6">Using Qt under its open-source licenses (LGPLv3 or GPLv3) means no direct monetary fee for the license itself. However, this "freedom" comes with significant responsibilities.</p>
+            <div class="card">
+                <h3 class="text-xl font-semibold brand-primary mb-4 text-center">The "Price" of Free: Key Obligations</h3>
+                <div class="grid md:grid-cols-3 gap-6 text-center">
+                    <div class="p-4 bg-blue-50 rounded-lg">
+                        <div class="text-4xl brand-accent-orange mb-2">📜</div>
+                        <h4 class="font-semibold text-lg mb-1">Source Code Provision</h4>
+                        <p class="text-sm text-gray-600">You must provide complete corresponding source code for GPLv3 parts and LGPLv3 libraries (including your modifications).</p>
+                    </div>
+                    <div class="p-4 bg-blue-50 rounded-lg">
+                        <div class="text-4xl brand-accent-green mb-2">🛠️</div>
+                        <h4 class="font-semibold text-lg mb-1">User Rights & Modification</h4>
+                        <p class="text-sm text-gray-600">Users must be able to modify the software and, for LGPLv3, re-link libraries. Anti-Tivoization (for GPLv3) ensures they can run modified versions on their devices.</p>
+                    </div>
+                    <div class="p-4 bg-blue-50 rounded-lg">
+                        <div class="text-4xl brand-secondary mb-2">⚖️</div>
+                        <h4 class="font-semibold text-lg mb-1">Legal Notices & Attribution</h4>
+                        <p class="text-sm text-gray-600">Full license texts, copyright notices, and warranty disclaimers must accompany every distribution. Modifications must be noted.</p>
+                    </div>
+                </div>
+                <p class="mt-6 text-center text-gray-700">While financially free, compliance requires time, effort, and careful legal understanding. These "indirect costs" are the trade-off for not paying a license fee.</p>
+            </div>
+        </section>
+
+        <section id="no-worries-compliance" class="mb-12">
+            <h2 class="section-title">Navigating "No Worries": Key Compliance Deep Dive</h2>
+            <p class="text-center text-gray-700 mb-6">Achieving a "no worries" state with open-source Qt hinges on meticulous compliance with the license terms. Here are some critical areas:</p>
+            
+            <div class="card mb-8">
+                <h3 class="text-xl font-semibold brand-primary mb-3 text-center">Linking Implications: GPLv3 & LGPLv3</h3>
+                <p class="text-gray-700 mb-4">How you link Qt components to your application has significant licensing consequences, especially when mixing proprietary code with LGPLv3 libraries. If your application itself is GPLv3, many of these concerns are simplified as the entire work is already GPLv3.</p>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Qt Component License</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Linking Method</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Impact on Your GPLv3 Application</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Key Obligation for Qt Component</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Qt under GPLv3</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Dynamic or Static</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">Entire combined application remains GPLv3.</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">Provide full source for your app & Qt; anti-Tivoization; patent provisions.</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Qt under LGPLv3</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Dynamic</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">Your app remains GPLv3. LGPLv3 Qt component stays LGPLv3.</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">Allow users to re-link with modified LGPL Qt; provide Qt source.</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Qt under LGPLv3</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Static</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">Your app remains GPLv3. This satisfies LGPL re-linking if full app source is provided.</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">Ensure users can re-link (e.g., by providing your app's object files or full GPLv3 source).</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="mt-3 text-xs text-gray-500">Note: This table simplifies complex legal topics. For proprietary applications linking LGPLv3, static linking requires providing means for the user to re-link your application's code (e.g. object files or source under LGPL), which is a greater burden than dynamic linking.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="card">
+                    <h3 class="text-xl font-semibold brand-primary mb-3 text-center">The Anti-Tivoization Challenge (GPLv3)</h3>
+                    <div class="text-center mb-3"><span class="text-5xl">📱➡️🔓</span></div>
+                    <p class="text-gray-700 mb-2">GPLv3's anti-Tivoization clause ensures users can run modified software on their devices. This means you must provide any necessary information (like installation scripts or cryptographic keys) for users to install their modified versions.</p>
+                    <p class="text-sm text-gray-600">This can be a significant hurdle for embedded systems or products designed for strict security or controlled updates. If your product strategy involves a locked-down device, GPLv3 compliance here can be complex.</p>
+                </div>
+
+                <div class="card">
+                    <h3 class="text-xl font-semibold brand-primary mb-3 text-center">Distribution Must-Haves Checklist</h3>
+                     <ul class="space-y-2">
+                        <li class="flex items-start"><span class="text-green-500 mr-2 text-2xl">✅</span> <span class="text-gray-700"><strong>Complete Source Code:</strong> For GPLv3 app and LGPLv3 Qt components.</span></li>
+                        <li class="flex items-start"><span class="text-green-500 mr-2 text-2xl">✅</span> <span class="text-gray-700"><strong>Full License Texts:</strong> Include copies of GPLv3 and any relevant LGPLv3 licenses.</span></li>
+                        <li class="flex items-start"><span class="text-green-500 mr-2 text-2xl">✅</span> <span class="text-gray-700"><strong>Copyright Notices:</strong> Prominently display all required copyright information.</span></li>
+                        <li class="flex items-start"><span class="text-green-500 mr-2 text-2xl">✅</span> <span class="text-gray-700"><strong>Warranty Disclaimer:</strong> Clearly state the absence of warranty (unless provided).</span></li>
+                        <li class="flex items-start"><span class="text-green-500 mr-2 text-2xl">✅</span> <span class="text-gray-700"><strong>Modification Records:</strong> Note any changes made to original Qt source.</span></li>
+                        <li class="flex items-start"><span class="text-green-500 mr-2 text-2xl">✅</span> <span class="text-gray-700"><strong>Re-linking Info (for LGPL):</strong> Instructions/means for users to re-link with modified LGPL libraries.</span></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <section id="swot-analysis" class="mb-12">
+            <h2 class="section-title">SWOT Analysis: Open Source Qt for GPLv3 Projects</h2>
+            <p class="text-center text-gray-700 mb-6">A strategic look at using open-source Qt versions (LGPLv3/GPLv3) for a project intended to be GPLv3.</p>
+            <div class="swot-grid">
+                <div class="swot-item swot-strengths">
+                    <h3 class="font-bold text-lg mb-2">Strengths 💪</h3>
+                    <ul class="list-disc list-inside text-sm">
+                        <li><strong>No Direct License Fee:</strong> Reduces upfront software costs.</li>
+                        <li><strong>Full Source Code Access:</strong> For Qt framework components used.</li>
+                        <li><strong>Large Community & Ecosystem:</strong> Extensive documentation and community support.</li>
+                        <li><strong>Alignment with FOSS Principles:</strong> If your project is inherently open source.</li>
+                        <li><strong>GPLv3 Compatibility:</strong> LGPLv3 Qt parts integrate smoothly into a GPLv3 application.</li>
+                    </ul>
+                </div>
+                <div class="swot-item swot-weaknesses">
+                    <h3 class="font-bold text-lg mb-2">Weaknesses 😟</h3>
+                    <ul class="list-disc list-inside text-sm">
+                        <li><strong>Compliance Burden:</strong> Significant effort to meet all GPLv3/LGPLv3 obligations.</li>
+                        <li><strong>Anti-Tivoization Complexity:</strong> Can be challenging for embedded/locked-down devices.</li>
+                        <li><strong>No Official Support/Warranty:</strong> Relies on community support for open-source versions.</li>
+                        <li><strong>Limited Access to Certain Modules:</strong> Some advanced or specialized Qt modules are commercial-only.</li>
+                    </ul>
+                </div>
+                <div class="swot-item swot-opportunities">
+                    <h3 class="font-bold text-lg mb-2">Opportunities 🚀</h3>
+                    <ul class="list-disc list-inside text-sm">
+                        <li><strong>Foster Open Collaboration:</strong> By releasing your GPLv3 application.</li>
+                        <li><strong>Build Trust with Users:</strong> Transparency through open source.</li>
+                        <li><strong>Leverage Community Contributions:</strong> Potential for external improvements.</li>
+                        <li><strong>Customization:</strong> Ability to modify Qt source (if needed, and share back).</li>
+                    </ul>
+                </div>
+                <div class="swot-item swot-threats">
+                    <h3 class="font-bold text-lg mb-2">Threats ⚠️</h3>
+                    <ul class="list-disc list-inside text-sm">
+                        <li><strong>Legal Risks of Non-Compliance:</strong> Severe consequences if obligations are not met.</li>
+                        <li><strong>Misinterpretation of Licenses:</strong> Complexity can lead to errors.</li>
+                        <li><strong>Third-Party Component Licenses:</strong> Qt bundles other libraries (e.g., LGPLv2.1) which also need compliance.</li>
+                        <li><strong>Changes in Qt Licensing:</strong> While KDE Free Qt Foundation provides some stability, future changes are always possible.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="commercial-qt" class="mb-12">
+            <h2 class="section-title">When is Commercial Qt a Better Fit?</h2>
+            <p class="text-center text-gray-700 mb-6">While developing GPLv3 software with open-source Qt is feasible, there are scenarios where a commercial Qt license might be more advantageous, even if it involves a fee, to truly reduce "worries":</p>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="card">
+                    <h3 class="text-lg font-semibold brand-primary mb-2">Proprietary Needs</h3>
+                    <p class="text-sm text-gray-600">If any part of your project needs to remain proprietary and you require Qt modules only available under GPLv3 (which would force your app to be GPLv3).</p>
+                </div>
+                <div class="card">
+                    <h3 class="text-lg font-semibold brand-primary mb-2">Complex Compliance Avoidance</h3>
+                    <p class="text-sm text-gray-600">If meeting all LGPLv3/GPLv3 obligations (especially anti-Tivoization for locked-down devices, or complex source distribution) is too burdensome or risky for your business model.</p>
+                </div>
+                <div class="card">
+                    <h3 class="text-lg font-semibold brand-primary mb-2">Dedicated Support & Warranty</h3>
+                    <p class="text-sm text-gray-600">Commercial licenses typically include official technical support, maintenance, and potentially warranties not available with open-source versions.</p>
+                </div>
+                <div class="card">
+                    <h3 class="text-lg font-semibold brand-primary mb-2">Access to Commercial-Only Features</h3>
+                    <p class="text-sm text-gray-600">If your project requires specific Qt modules, tools (e.g., Qt for MCUs, Qt Safe Renderer, advanced Design Studio features), or services only available with a commercial license.</p>
+                </div>
+                <div class="card">
+                    <h3 class="text-lg font-semibold brand-primary mb-2">Simplified Licensing & Distribution</h3>
+                    <p class="text-sm text-gray-600">Commercial licenses allow you to distribute your software on your own terms, without the copyleft restrictions or source code obligations of GPL/LGPL.</p>
+                </div>
+                <div class="card">
+                    <h3 class="text-lg font-semibold brand-primary mb-2">Minimizing Legal Overhead</h3>
+                    <p class="text-sm text-gray-600">For organizations prioritizing minimal legal risk and maximum control, the fee for a commercial license can be a worthwhile investment for peace of mind.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="conclusion" class="mb-12">
+            <h2 class="section-title">Conclusion & Key Recommendations</h2>
+            <div class="card">
+                <p class="text-lg text-gray-700 mb-6 text-center">
+                    Developing GPLv3 software with Qt's open-source offerings is achievable without direct fees. However, "no worries" development demands a profound understanding and diligent adherence to the extensive obligations of GPLv3 and LGPLv3. The financial barrier is replaced by a legal and operational responsibility.
+                </p>
+                <h3 class="text-xl font-semibold brand-primary mb-4 text-center">Top Recommendations for a Smoother Journey:</h3>
+                <ol class="list-decimal list-inside space-y-3 text-gray-700 md:w-3/4 mx-auto">
+                    <li>
+                        <strong class="brand-secondary">Conduct Thorough Due Diligence:</strong> Meticulously identify all Qt modules and third-party components. Verify their specific licenses (LGPLv3, GPLv3, etc.) and understand all associated obligations. Utilize Qt's Software Bill of Materials (SBOM) if available.
+                    </li>
+                    <li>
+                        <strong class="brand-secondary">Plan for Compliance from Inception:</strong> Integrate license compliance into your development lifecycle from the start. Establish clear processes for source code distribution, legal notices, and addressing anti-Tivoization for embedded systems.
+                    </li>
+                    <li>
+                        <strong class="brand-secondary">Seek Legal Counsel for Complexities:</strong> For commercial applications, intricate scenarios, or any lingering doubts about license interpretation and compliance, consulting with a legal expert specializing in open-source software is highly recommended.
+                    </li>
+                </ol>
+                <p class="mt-8 text-center font-semibold brand-primary">Diligent research and proactive compliance are paramount for truly worry-free development with open-source Qt.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-gray-300 py-6 text-center">
+        <p class="text-sm">&copy; <span id="currentYear"></span> Qt Licensing Infographic. For informational purposes only. Not legal advice.</p>
+    </footer>
+
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        function wrapLabel(str, maxWidth) {
+            if (str.length <= maxWidth) {
+                return str;
+            }
+            const words = str.split(' ');
+            const lines = [];
+            let currentLine = '';
+            for (const word of words) {
+                if ((currentLine + word).length > maxWidth && currentLine.length > 0) {
+                    lines.push(currentLine.trim());
+                    currentLine = '';
+                }
+                currentLine += word + ' ';
+            }
+            if (currentLine.trim().length > 0) {
+                lines.push(currentLine.trim());
+            }
+            return lines.length > 0 ? lines : [str]; // Ensure it always returns an array if lines were made, or original string if not
+        }
+        
+        const tooltipTitleCallback = function(tooltipItems) {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+              return label.join(' ');
+            } else {
+              return label;
+            }
+        };
+
+        // Illustrative Qt Module Chart
+        const qtModuleCtx = document.getElementById('qtModuleChart').getContext('2d');
+        if (qtModuleCtx) {
+            new Chart(qtModuleCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: [
+                        wrapLabel('Essential Modules (Core, GUI) - Often LGPLv3', 20), 
+                        wrapLabel('Free Add-on Modules (SQL, WebEngine) - Often LGPLv3/GPLv3', 20),
+                        wrapLabel('Specialized/Paid Add-ons (MCU, Safe Renderer) - Commercial/GPLv3', 20),
+                        wrapLabel('Development Tools (Creator) - Often GPLv3', 20)
+                    ],
+                    datasets: [{
+                        label: 'Qt Module Licensing',
+                        data: [45, 30, 15, 10], // Illustrative percentages
+                        backgroundColor: [
+                            '#007BFF', // Bright Blue
+                            '#28A745', // Accent Green
+                            '#FFA500', // Accent Orange
+                            '#6c757d'  // Neutral Gray
+                        ],
+                        borderColor: '#FFFFFF',
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                font: { size: 10 },
+                                boxWidth: 20,
+                                padding: 15,
+                                 // Custom label generation to handle wrapped text
+                                generateLabels: function(chart) {
+                                    const data = chart.data;
+                                    if (data.labels.length && data.datasets.length) {
+                                        return data.labels.map(function(label, i) {
+                                            const meta = chart.getDatasetMeta(0);
+                                            const style = meta.controller.getStyle(i);
+                                            return {
+                                                text: Array.isArray(label) ? label.join(' ') : label, // Join wrapped label back for legend
+                                                fillStyle: style.backgroundColor,
+                                                strokeStyle: style.borderColor,
+                                                lineWidth: style.borderWidth,
+                                                hidden: isNaN(data.datasets[0].data[i]) || meta.data[i].hidden,
+                                                index: i
+                                            };
+                                        });
+                                    }
+                                    return [];
+                                }
+                            }
+                        },
+                        title: {
+                            display: false,
+                            text: 'Illustrative Qt Module Licensing Distribution'
+                        },
+                        tooltip: {
+                            callbacks: {
+                                title: tooltipTitleCallback,
+                                label: function(context) {
+                                    let label = context.dataset.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    if (context.parsed !== null) {
+                                        label += context.parsed + '%';
+                                    }
+                                    return label;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        } else {
+            console.error("Failed to get context for qtModuleChart");
+        }
+
+    </script>
+
+</body>
+</html>
