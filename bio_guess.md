@@ -12,8 +12,7 @@
 - [ ] Differentiate b/w deductive reasoning & inductive reasoning.
 
 ### UNIT 2
-- [ ] Define biochemistry.
-- [ ] Give its importance.
+- [ ] Define biochemistry. Give its importance.
 - [ ] Differentiate b/w glycosidic & peptide bond.
 - [ ] Define lipids.
 - [ ] Give two roles of waxes Differentiated b/w saturated & unsaturated fatty acid.
