@@ -16,7 +16,7 @@ jobs:
       - name: Generate index.html files recursively
         uses: gacts/directory-listing@v1
         with:
-          #target: 'public'      # adjust to the root directory you want to index
+          target: 'public'      # adjust to the root directory you want to index
           ignore: |
             **/index.html      # don't reprocess already generated listings
             .git/**             # skip git internals
