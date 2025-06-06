@@ -1,302 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
+  <title>Kazam's store room</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>1st Year Biology Guess Paper 2025</title>
-  <meta name="description" content="Study guide for 1st Year Biology Guess Paper 2025…" />
-
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script> <style>
+  <style>
+    /* Basic dark theme styling */
     body {
-      font-family: 'Roboto', sans-serif;
-    }
-    .checkbox-wrapper-11 {
-      /* Swapped --text and --disabled for text color inversion */
-      --text: #C3C8DE; /* Was #414856 - Now color for UNCHECKED text (appears disabled-like) */
-      --disabled: #414856; /* Was #C3C8DE - Now color for CHECKED text (appears active-like) */
-      
-      /* Changed --check to parrot green */
-      --check: #b4d934; /* Parrot Green */
-      
-      --border-radius: 10px;
-      --background: transparent; 
-      border-radius: var(--border-radius);
-      position: relative;
-      padding: 5px 0; 
-      display: grid;
-      grid-template-columns: 40px auto;
-      align-items: center;
-      margin-bottom: 8px; 
-    }
-    .checkbox-wrapper-11 label {
-      color: var(--text); /* Initially uses the new --text color */
-      position: relative;
-      cursor: pointer;
-      display: grid;
-      align-items: center;
-      width: fit-content;
-      transition: color 0.3s ease;
-      padding-left: 5px; 
-    }
-    .checkbox-wrapper-11 label::before,
-    .checkbox-wrapper-11 label::after {
-      content: "";
-      position: absolute;
-    }
-    .checkbox-wrapper-11 label::before {
-      height: 2px;
-      width: 8px;
-      left: -27px; 
-      background: var(--check); /* Uses new parrot green */
-      border-radius: 2px;
-      transition: background 0.3s ease;
-    }
-    .checkbox-wrapper-11 label::after {
-      height: 4px;
-      width: 4px;
-      top: 50%; 
-      transform: translateY(-50%); 
-      left: -25px; 
-      border-radius: 50%;
-    }
-    .checkbox-wrapper-11 input[type=checkbox] {
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      position: relative;
-      height: 24px;
-      width: 24px;
-      outline: none;
-      border: 0;
-      margin: 0; 
-      cursor: pointer;
-      background: var(--background);
-      display: grid;
-      align-items: center;
-      justify-self: center; 
-    }
-    .checkbox-wrapper-11 input[type=checkbox]::before, 
-    .checkbox-wrapper-11 input[type=checkbox]::after {
-      content: "";
-      position: absolute;
-      height: 2px;
-      top: auto;
-      background: var(--check); /* Uses new parrot green */
-      border-radius: 2px;
-    }
-    .checkbox-wrapper-11 input[type=checkbox]::before {
-      width: 0;
-      right: 60%;
-      transform-origin: right bottom;
-    }
-    .checkbox-wrapper-11 input[type=checkbox]::after {
-      width: 0;
-      left: 40%;
-      transform-origin: left bottom;
-    }
-    .checkbox-wrapper-11 input[type=checkbox]:checked::before {
-      animation: check-01-11 0.4s ease forwards;
-    }
-    .checkbox-wrapper-11 input[type=checkbox]:checked::after {
-      animation: check-02-11 0.4s ease forwards;
-    }
-    .checkbox-wrapper-11 input[type=checkbox]:checked + label {
-      color: var(--disabled); /* Uses new --disabled color when checked */
-      animation: move-11 0.3s ease 0.1s forwards;
-    }
-    .checkbox-wrapper-11 input[type=checkbox]:checked + label::before {
-      /* This was background: var(--disabled); 
-         If you want the strikethrough to also be parrot green when checked, 
-         change it to var(--check). If you want it to match the new --disabled text color, keep as is.
-         Let's try keeping it consistent with the new --disabled text color for the strikethrough.
-      */
-      background: var(--disabled); 
-      animation: slice-11 0.4s ease forwards;
-    }
-    .checkbox-wrapper-11 input[type=checkbox]:checked + label::after {
-      animation: firework-11 0.5s ease forwards 0.1s; /* Firework will use --check (parrot green) */
+      background: #181A1B;
+      color: #E0E0E0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
-    /* Keyframes for checkbox animations */
-    @keyframes move-11 {
-      50% {
-        padding-left: 8px;
-        padding-right: 0px;
-      }
-      100% {
-        padding-right: 4px;
-      }
-    }
-    @keyframes slice-11 {
-      60% {
-        width: 100%;
-        left: 4px;
-      }
-      100% {
-        width: 100%;
-        left: -2px;
-        padding-left: 0px;
-      }
-    }
-    @keyframes check-01-11 {
-      0% {
-        width: 4px;
-        top: auto;
-        transform: rotate(0);
-      }
-      50% {
-        width: 0px;
-        top: auto;
-        transform: rotate(0);
-      }
-      51% {
-        width: 0px;
-        top: 8px;
-        transform: rotate(45deg);
-      }
-      100% {
-        width: 5px; 
-        top: 8px; 
-        transform: rotate(45deg);
-      }
-    }
-    @keyframes check-02-11 {
-      0% {
-        width: 4px;
-        top: auto;
-        transform: rotate(0);
-      }
-      50% {
-        width: 0px;
-        top: auto;
-        transform: rotate(0);
-      }
-      51% {
-        width: 0px;
-        top: 8px;
-        transform: rotate(-45deg);
-      }
-      100% {
-        width: 10px; 
-        top: 8px; 
-        transform: rotate(-45deg);
-      }
-    }
-    @keyframes firework-11 { /* This animation uses var(--check) for its box-shadow color */
-      0% {
-        opacity: 1;
-        box-shadow: 0 0 0 -2px var(--check), 0 0 0 -2px var(--check), 0 0 0 -2px var(--check), 0 0 0 -2px var(--check), 0 0 0 -2px var(--check), 0 0 0 -2px var(--check);
-      }
-      30% {
-        opacity: 1;
-      }
-      100% {
-        opacity: 0;
-        box-shadow: 0 -15px 0 0px var(--check), 14px -8px 0 0px var(--check), 14px 8px 0 0px var(--check), 0 15px 0 0px var(--check), -14px 8px 0 0px var(--check), -14px -8px 0 0px var(--check);
-      }
+    header {
+      background: #23272A;
+      padding: 2rem 1rem 1.5rem 1rem;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
     }
 
-    /* Styles for Markdown content */
-    #content ul {
-      list-style: none;
-      padding-left: 0;
+    header h1 {
+      color: #f39c12;
+      margin: 0;
+      font-size: 2.6rem;
+      letter-spacing: 2px;
     }
-    #content li {
-      /* The wrapper will handle layout, so li doesn't need much */
-    }
-    #content h1, #content h2, #content h3, #content h4 {
-        margin-top: 1.5em;
-        margin-bottom: 0.5em;
-        font-weight: 600;
-    }
-    #content h1 { font-size: 2em; }
-    #content h2 { font-size: 1.5em; }
-    #content h3 { font-size: 1.25em; }
-    #content p { margin-bottom: 1em; }
 
+    main {
+      flex: 1;
+      max-width: 700px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: #212324;
+      border-radius: 12px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+    }
+
+    h2 {
+      color: #7FDBFF;
+      margin-top: 0;
+    }
+
+    a {
+      color: #f39c12;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    a:hover {
+      color: #7FDBFF;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background: #23272A;
+      color: #888;
+      font-size: 0.95rem;
+      border-top: 1px solid #222;
+    }
+
+    /* Responsive design */
+    @media (max-width: 600px) {
+      main {
+        padding: 1rem;
+        margin: 1rem;
+      }
+
+      header h1 {
+        font-size: 1.6rem;
+      }
+    }
   </style>
 </head>
-<body class="bg-gray-900 text-gray-200 min-h-screen p-4 md:p-8 flex justify-center">
-  <div class="w-full max-w-3xl">
-    <header class="mb-8 text-center">
-        <h1 class="text-4xl font-bold text-purple-400">1st Year Biology Guess Paper 2025</h1>
-        <p class="text-lg text-gray-400">Your comprehensive study guide</p>
-    </header>
-    <div id="content" class="bg-gray-800 shadow-2xl rounded-lg p-6 md:p-8">
-      <p>Loading content...</p>
-    </div>
-    <footer class="text-center mt-8 text-gray-500">
-        <p>&copy; 2025 Kazam</p>
-    </footer>
-  </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <script>
-    // Ensure the DOM is fully loaded before trying to fetch and manipulate
-    document.addEventListener('DOMContentLoaded', () => {
-      fetch("./bio_guess.md") // Make sure this path is correct
-        .then(response => {
-          if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-          }
-          return response.text();
-        })
-        .then(md => {
-          const contentDiv = document.getElementById("content");
-          if (!contentDiv) {
-            console.error("Content div not found!");
-            return;
-          }
-          contentDiv.innerHTML = marked.parse(md);
-
-          let counter = 0;
-          contentDiv.querySelectorAll('li > input[type="checkbox"]').forEach(cb => {
-            const originalParentLi = cb.parentNode; 
-
-            let labelText = '';
-            let currentNode = cb.nextSibling;
-            while(currentNode) {
-                if (currentNode.nodeType === Node.TEXT_NODE) {
-                    labelText += currentNode.textContent;
-                }
-                else if (currentNode.nodeType === Node.ELEMENT_NODE) {
-                    labelText += currentNode.textContent;
-                }
-                currentNode = currentNode.nextSibling;
-            }
-            labelText = labelText.trim();
-            
-            const wrapper = document.createElement('div');
-            wrapper.className = 'checkbox-wrapper-11';
-            
-            const id = `cb-${counter++}`;
-            cb.id = id;
-            cb.removeAttribute('disabled'); 
-            
-            const lbl = document.createElement('label');
-            lbl.htmlFor = id;
-            lbl.textContent = labelText;
-            
-            wrapper.appendChild(cb); 
-            wrapper.appendChild(lbl);
-            
-            while (originalParentLi.firstChild) {
-                originalParentLi.removeChild(originalParentLi.firstChild);
-            }
-            
-            originalParentLi.appendChild(wrapper);
-
-          });
-        })
-        .catch(err => {
-          console.error("Error fetching or processing markdown:", err);
-          const contentDiv = document.getElementById("content");
-          if (contentDiv) {
-            contentDiv.innerHTML = 
-              `<p class="text-red-400">Error loading content. Please check the console for details. Ensure 'bio_guess.md' is in the same directory or provide the correct path.</p>`;
-          }
-        });
-    });
-  </script>
+<body>
+  <header>
+    <h1>Welcome!</h1>
+  </header>
+  <main>
+    <p>
+      This is a static web where I plan to share some stuffs.
+    </p>
+    <p>
+      <a href="https://github.com/coyoteclan/kazam" target="_blank">View the Kazam repository</a>
+    </p>
+  </main>
+  <footer>
+    &copy; 2025 Kazam. All rights reserved.
+  </footer>
 </body>
 </html>
