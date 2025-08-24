@@ -5,94 +5,218 @@
   <title>Kazam's store room</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    /* Basic dark theme styling */
+    :root {
+      --color-text-primary: #444;
+      --color-text-secondary: #111;
+      --color-bg-primary: #ddd;
+      --color-bg-secondary: #bbb;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-text-primary: #bbb;
+        --color-text-secondary: #eee;
+        --color-bg-primary: #242424;
+        --color-bg-secondary: #444;
+      }
+    }
+
+    html,
     body {
-      background: #181A1B;
-      color: #E0E0E0;
-      font-family: 'Segoe UI', Arial, sans-serif;
       margin: 0;
       padding: 0;
-      min-height: 100vh;
+      background-color: var(--color-bg-primary);
+      color: var(--color-text-primary);
+      font-family: ui-sans-serif, system-ui, sans-serif;
+    }
+
+    body {
       display: flex;
       flex-direction: column;
+      margin: 2em 1.25em;
+      font-size: 16px;
+      min-height: calc(100vh - 4em);
+    }
+
+    @media screen and (max-width: 480px) {
+      body {
+        font-size: 14px;
+      }
+    }
+
+    @media screen and (min-width: 1800px) {
+      body,
+      html {
+        font-size: 20px;
+      }
+    }
+
+    a {
+      color: var(--color-text-secondary);
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    a:hover {
+      opacity: 0.85;
+      transition: opacity 0.2s linear;
+      text-decoration: underline;
+    }
+
+    a:visited {
+      color: var(--color-text-secondary);
+    }
+
+    header,
+    main {
+      padding: 0 2rem;
     }
 
     header {
-      background: #23272A;
-      padding: 2rem 1rem 1.5rem 1rem;
-      text-align: center;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      margin-bottom: 2rem;
     }
 
     header h1 {
-      color: #f39c12;
+      display: flex;
+      align-items: center;
+      color: var(--color-text-secondary);
+      font-size: 2.5em;
       margin: 0;
-      font-size: 2.6rem;
-      letter-spacing: 2px;
     }
 
     main {
       flex: 1;
-      max-width: 700px;
-      margin: 2rem auto;
+      max-width: 800px;
+      margin: 0 auto;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    main p {
+      font-size: 1.125em;
+      line-height: 1.6;
+      margin-bottom: 1.5em;
+    }
+
+    .flag-strip {
+      height: .25rem;
+      background-image: linear-gradient(to right, #EE2A35 0%, #EE2A35 25%, black 25%, black 50%, white 50%, white 75%, #009736 75%, #009736 100%);
+      background-size: 100%;
+      margin-bottom: 1rem;
+    }
+
+    .welcome-message {
+      background-color: var(--color-bg-primary);
+      border: 1px solid var(--color-bg-secondary);
+      border-radius: 8px;
       padding: 2rem;
-      background: #212324;
-      border-radius: 12px;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+      margin-bottom: 2rem;
+      border-left: 4px solid var(--color-text-secondary);
     }
 
-    h2 {
-      color: #7FDBFF;
-      margin-top: 0;
+    .links-section {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin: 2rem 0;
     }
 
-    a {
-      color: #f39c12;
-      text-decoration: none;
-      transition: color 0.2s;
+    .link-card {
+      flex: 1;
+      min-width: 200px;
+      background-color: var(--color-bg-secondary);
+      border-radius: 8px;
+      padding: 1.5rem;
+      text-align: center;
+      transition: all 0.2s ease;
+      border: 1px solid var(--color-bg-secondary);
     }
 
-    a:hover {
-      color: #7FDBFF;
+    .link-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .link-card:hover {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      }
+    }
+
+    .link-card a {
+      display: block;
+      font-size: 1.2em;
+      font-weight: 600;
+      color: var(--color-text-secondary);
+    }
+
+    .link-card .description {
+      margin-top: 0.5rem;
+      font-size: 0.9em;
+      color: var(--color-text-primary);
+      opacity: 0.8;
     }
 
     footer {
       text-align: center;
-      padding: 1.5rem;
-      background: #23272A;
-      color: #888;
-      font-size: 0.95rem;
-      border-top: 1px solid #222;
+      padding: 2rem 0 1rem;
+      margin-top: auto;
+      border-top: 1px solid var(--color-bg-secondary);
+      color: var(--color-text-primary);
+      opacity: 0.7;
     }
 
-    /* Responsive design */
-    @media (max-width: 600px) {
-      main {
-        padding: 1rem;
-        margin: 1rem;
+    @media screen and (max-width: 480px) {
+      .links-section {
+        flex-direction: column;
       }
-
-      header h1 {
-        font-size: 1.6rem;
+      
+      .link-card {
+        min-width: unset;
+      }
+      
+      header,
+      main {
+        padding: 0 1rem;
+      }
+      
+      .welcome-message {
+        padding: 1.5rem;
       }
     }
   </style>
 </head>
 <body>
+  <div>
+    <p align="center">Free Palestine!</p>
+    <div class="flag-strip"></div>
+  </div>
+  
   <header>
-    <h1>Welcome!</h1>
+    <h1>Welcome to Kazam's Store Room</h1>
   </header>
+  
   <main>
-    <p>
-      This is a static web where I plan to share some stuff.
-    </p>
-    <p>
-      <a href="public" target="_blank">View Files</a>
-    </p>
-    <p>
-      <a href="https://github.com/coyoteclan/kazam" target="_blank">View Repo</a>
-    </p>
+    <div class="welcome-message">
+      <p>
+        This is a static web where I plan to share some stuff. Feel free to explore the files and check out the source code.
+        The binaries on this site are auto built from source code, you can verify from the repository.
+      </p>
+    </div>
+    
+    <div class="links-section">
+      <div class="link-card">
+        <a href="public" target="_blank">📁 View Files</a>
+        <div class="description">Browse through the shared files and documents</div>
+      </div>
+      
+      <div class="link-card">
+        <a href="https://github.com/coyoteclan/kazam" target="_blank">🔗 View Repo</a>
+        <div class="description">Check out the source code on GitHub</div>
+      </div>
+    </div>
   </main>
+  
   <footer>
     &copy; 2025 Kazam. All rights reserved.
   </footer>
