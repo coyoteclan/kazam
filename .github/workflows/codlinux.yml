@@ -14,6 +14,11 @@ jobs:
       - name: 🔽 Checkout repo
         uses: actions/checkout@v3
 
+      - name: Install git
+        run: |
+          apt update
+          apt install git -y
+
       - name: Clone CoDLinux Repo
         run: |
           git clone https://gitlab.com/kazam0180/codlinux.git
