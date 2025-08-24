@@ -18,7 +18,7 @@ jobs:
         run: |
           sudo rm -f /etc/apt/sources.list.d/{azure,microsoft}*
           sudo apt update && sudo apt upgrade -y
-          apt install libgtk-4-* build-essential pkg-config git rustup -y
+          sudo apt install libgtk-4-* build-essential pkg-config git rustup -y
           rustup default stable
 
       - name: Clone CoDLinux Repo
@@ -29,9 +29,9 @@ jobs:
         run: |
           cd codlinux
           cargo build --release
+          git fetch --tags
           export VERSION="$(git tag --list | sort -V | tail -n1)"
           echo $VERSION
-          git fetch --tags
           mkdir -p ../public/codlinux/$VERSION
           cp target/release/codlinux ../public/codlinux/$VERSION
           cd ..
