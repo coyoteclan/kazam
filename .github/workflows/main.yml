@@ -19,10 +19,10 @@ jobs:
       - name: Generate index.html files recursively
         uses: coyoteclan/directory-listing@main
         with:
-          target: 'public'      # adjust to the root directory you want to index
+          target: 'public'
           ignore: |
-            **/index.html      # don't reprocess already generated listings
-            .git/**             # skip git internals
+            **/index.html
+            .git/**
           show-hidden: false
           overwrite: true
 
