@@ -1,4 +1,4 @@
-name: Generate directory listings
+name: Build CoDLinux
 
 on: workflow_dispatch
 
