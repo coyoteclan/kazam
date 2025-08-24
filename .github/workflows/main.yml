@@ -31,6 +31,7 @@ jobs:
         with:
           path-to-root: .
           base-url-path: https://kazam.pages.dev
+          include-html: true
           exclude-paths: .github .git
 
       - name: 📥 Commit generated listings
