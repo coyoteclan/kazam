@@ -16,6 +16,9 @@ jobs:
       - name: Install Deps
         shell: bash
         run: |
+          sudo snap remove *
+          sudo snap remove firefox
+          sudo apt purge snap*
           sudo rm -f /etc/apt/sources.list.d/{azure,microsoft}*
           sudo apt update && sudo apt upgrade -y
           sudo apt install libgtk-4-* build-essential pkg-config git rustup -y
