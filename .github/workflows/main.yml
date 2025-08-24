@@ -25,6 +25,7 @@ jobs:
             .git/**
           show-hidden: false
           overwrite: true
+          indexing: true
 
       - name: Generate Sitemap
         uses: cicirello/generate-sitemap@v1.10.3
