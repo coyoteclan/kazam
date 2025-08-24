@@ -7,17 +7,18 @@ permissions:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-    container: quay.io/mechamorph/codlinux-build:latest
+    runs-on: ubuntu-24.04
 
     steps:
       - name: 🔽 Checkout repo
         uses: actions/checkout@v3
 
       - name: Install Deps
+        shell: bash
         run: |
-          apt update
-          apt install git -y
+          sudo rm -f /etc/apt/sources.list.d/{azure,microsoft}*
+          sudo apt update && sudo apt upgrade -y
+          apt install libgtk-4-* build-essential pkg-config git rustup -y
           rustup default stable
 
       - name: Clone CoDLinux Repo
@@ -29,6 +30,7 @@ jobs:
           cd codlinux
           cargo build --release
           export VERSION="$(git tag --list | sort -V | tail -n1)"
+          echo $VERSION
           git fetch --tags
           mkdir -p ../public/codlinux/$VERSION
           cp target/release/codlinux ../public/codlinux/$VERSION
@@ -37,6 +39,7 @@ jobs:
 
       - name: 📥 Commit generated listings
         run: |
+          ls -la
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add .
