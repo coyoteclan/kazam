@@ -26,6 +26,12 @@ jobs:
           show-hidden: false
           overwrite: true
 
+      - name: Generate Sitemap
+        with:
+          path-to-root: .
+          base-url-path: https://kazam.pages.dev
+          exclude-paths: .github .git
+
       - name: 📥 Commit generated listings
         run: |
           git config user.name "github-actions[bot]"
