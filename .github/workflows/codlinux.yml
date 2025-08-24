@@ -46,5 +46,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add .
-          git commit -m "chore: update directory listings" || echo "No changes to commit"
+          git commit -m "chore: upload CoDLinux binary" || echo "No changes to commit"
           git push
