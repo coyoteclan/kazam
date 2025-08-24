@@ -14,10 +14,11 @@ jobs:
       - name: 🔽 Checkout repo
         uses: actions/checkout@v3
 
-      - name: Install git
+      - name: Install Deps
         run: |
           apt update
           apt install git -y
+          rustup default stable
 
       - name: Clone CoDLinux Repo
         run: |
