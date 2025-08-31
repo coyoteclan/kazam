@@ -48,3 +48,7 @@ jobs:
           git add .
           git commit -m "chore: upload CoDLinux binary" || echo "No changes to commit"
           git push
+
+      - name: 📁 Update Directory Listing
+        uses: ./.github/workflows/main.yml
+
