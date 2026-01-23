@@ -9,15 +9,12 @@ SOURCES_FILE="$PREFIX/etc/apt/sources.list.d/$REPO_NAME.list"
 
 echo "Setting up $REPO_NAME repository..."
 
-# Download and import key
 echo "Importing GPG key..."
 curl -s "$KEY_URL" | gpg --import
-
-# Export to apt keyring
 KEY_ID=$(gpg --list-keys --with-colons 2>/dev/null | grep '^pub' | tail -1 | cut -d: -f5)
 gpg --export "$KEY_ID" > "$PREFIX/etc/apt/trusted.gpg.d/$REPO_NAME.gpg"
 
-# Create sources.list entry
+mkdir -p $PREFIX/etc/apt/sources.list.d
 echo "deb [signed-by=$PREFIX/etc/apt/trusted.gpg.d/$REPO_NAME.gpg] $REPO_URL termux custom" > "$SOURCES_FILE"
 
 echo "✓ Repository added successfully"
