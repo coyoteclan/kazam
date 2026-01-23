@@ -1,0 +1,47 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA256
+
+Codename: termux
+Version: 1
+Architectures: all
+Description: kazam repository
+Suite: kazam
+Date: Fri, 23 Jan 2026 08:19:54 UTC
+Components: debports
+MD5Sum:
+ 7ca77ad281fdac68a41a64da93ce6e0e 15532 debports/binary-all/Packages
+ 189a557d49376c355c0030d4cc442517 4740 debports/binary-all/Packages.xz
+ 6f07bba83a22949648fda90496061890 291221 debports/Contents-all
+ ef64cf5c5e16f6f245c4d2e985585491 15844 debports/Contents-all.xz
+SHA1:
+ faea487dd16d61a07ed5dc9a0db0d56a6376c4ba 15532 debports/binary-all/Packages
+ a601ce6ee3e329b71e238a30ce8f8cad891025c5 4740 debports/binary-all/Packages.xz
+ 70b32b5e7d405c05010b3dd427b1880c478858ac 291221 debports/Contents-all
+ 81affbb87bd77bf2341d1273a87cdcf4a08f66a4 15844 debports/Contents-all.xz
+SHA256:
+ 1ea76104a0468633c11d09b196539dbc03c9275677bc68ebced27eef5e810fdf 15532 debports/binary-all/Packages
+ be95766a21dd294dfe9fa8724e2ee5368105f029f4435f58b22d08664b513691 4740 debports/binary-all/Packages.xz
+ 61039c22c99fabe330f340c779b1a91822c3f552360ad53eba2f1290808f1a4e 291221 debports/Contents-all
+ bd56c7a81ae725269746e41a3701f426567392a78b3e5aec009d8caffd1e47e8 15844 debports/Contents-all.xz
+SHA512:
+ 79f86405c9b683a243c969ccf43e769480c44c2e1e3ec3bb45ab4740b26a16b813029ce91ed84b0e223271a7bbaa3a93f4ff0b039d49938e73a2f343f5679af5 15532 debports/binary-all/Packages
+ b961d915c0878b7679786917bd396684fdd3c1574a82716d8354d2cc388cdb7d8615f8a069bb3df04e6467f5d916435c8f055815570ccac0d4f761d490056a6b 4740 debports/binary-all/Packages.xz
+ 979af0e198c5e8710032c98b0797877e632900c6588763d25a788dbc326ce64b7886d9ec53a2d930f577342ca39c7ac81ec23a90a8d274da13eddd2e45b426a5 291221 debports/Contents-all
+ c8175a958ac4922f50d4f9f4498eb2a1637eaee3406a8ce6fbeb22972a51e9f52424d516220b3525591c996b4a6ff0be4419f0f21568bc084125d51feffedc82 15844 debports/Contents-all.xz
+-----BEGIN PGP SIGNATURE-----
+
+iQJPBAEBCAA5FiEEIn3IhjflnH140BOCKewbE+E61T4FAmlzLzIbFIAAAAAABAAO
+bWFudTIsMi41KzEuMTEsMywyAAoJECnsGxPhOtU+9LEQAJZNFLacKoN/Ej7qpg4e
+FqejNEuhF+jO1Crj2rQuCFtou5uHAlISHI78JEOghfkt90uzfLahHI7KR7HYuHRY
+GWWLpznFUkv+cxp5No+glEXHLCKxWN4qOBBmEGFIvKDg3kPZuHFPbqZ+L1i2/jF3
+LhzsOL2s3kSZlKwdD8Nk5w/9zEFHpCuA6SVfmUCqu5Ut+xG5ajn2lpu0bbcFx6E0
+YnouEduCempUnnN1gWjCbKOV67rX9ytTl7Ib/WEjwwNTvFicnHfhWJ+a9x1dY/Er
+3/bFTxOWBWWDyeUFvs6rOQTC63u1Ep40RaMXI0aNcQHx7h3LdeOwQ1PnjJWxvMw9
+oI7cqMEtKyN55hEwWdeOfAY+A4YFtEPyxF/HWZeCsqKQIx9g0JxlKypntpDKbcgS
+AVksWFAElHOCNjHPtGWFYWnpo/EGzeR+p9RGYnZXB1dJLzGaUKertfGVPum4sd9+
+u3uR7739+27G8QMhkFQX3z7vKh+J19C8K8/r44ASS4EMtSZHtRbnb8F+GJFVc850
+D+PsuE4ZVc5ZroGe8+CZDNx1Yaj6c/P12l/o96gw7ooKImTBG+Ep7Dgg12bFYA9a
+S8cWtzrxrbOUPZU7vp3KmSdOVPKqqvroumLrMmH+Iye4umFdxOnMa2aJooOdd7wp
+WlUg7X7jyeyqM1nqG9GVsHap
+=SQSc
+-----END PGP SIGNATURE-----
