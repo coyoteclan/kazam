@@ -15,7 +15,7 @@ KEY_ID=$(gpg --list-keys --with-colons 2>/dev/null | grep '^pub' | tail -1 | cut
 gpg --export "$KEY_ID" > "$PREFIX/etc/apt/trusted.gpg.d/$REPO_NAME.gpg"
 
 mkdir -p $PREFIX/etc/apt/sources.list.d
-echo "deb [signed-by=$PREFIX/etc/apt/trusted.gpg.d/$REPO_NAME.gpg] $REPO_URL termux custom" > "$SOURCES_FILE"
+echo "deb [signed-by=$PREFIX/etc/apt/trusted.gpg.d/$REPO_NAME.gpg] $REPO_URL kazam debports" > "$SOURCES_FILE"
 
 echo "✓ Repository added successfully"
 echo "Run 'pkg update' to refresh package lists"
