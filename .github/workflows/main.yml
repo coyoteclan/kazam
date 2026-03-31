@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-  workflow_call:
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -15,7 +15,7 @@ jobs:
 
     steps:
       - name: 🔽 Checkout repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Generate index.html files recursively
         uses: coyoteclan/directory-listing@main
