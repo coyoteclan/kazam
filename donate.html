@@ -43,20 +43,20 @@
       </p>
       <div class="donate-vertical">
         <div class="donate-card" role="region" aria-labelledby="pak-title">
-          <h3 id="pak-title">Pakistan <span aria-hidden="true">🇵🇰</span></h3>
+<!--           <h3 id="pak-title">Pakistan <span aria-hidden="true">🇵🇰</span></h3> -->
 
           <div class="jc-wrapper">
             <div class="donate-label">JazzCash</div>
             <div class="donate-box" aria-hidden="false">
               <span id="jc-addr" title="JazzCash number">03003666521</span>
             </div>
-            <div class="small">Mobile wallet — local transfers</div>
+            <div class="small">Local transfers or <a id="remit" href="#">remittance</a></div>
           </div>
         </div>
 
         <!-- International (second row) -->
         <div class="donate-card" role="region" aria-labelledby="int-title">
-          <h3 id="int-title">International <span aria-hidden="true">🌐</span></h3>
+<!--           <h3 id="int-title">International <span aria-hidden="true">🌐</span></h3> -->
 
           <div class="donate-label" style="text-align:center">Bitcoin (BTC, mainnet)</div>
 
@@ -72,7 +72,6 @@
             <img class="qr" src="https://gitlab.com/kazam0180/kazam0180/-/raw/main/bitcoin-qr.png" alt="Bitcoin QR code">
           </div>
         </div>
-      </div>
     </div>
   </main>
 
@@ -80,4 +79,29 @@
     &copy; 2026 Kazam. All rights reserved.
   </footer>
 </body>
+
+<script>
+document.addEventListener("DOMContentLoaded", async () => {
+  try {
+    const ipRes = await fetch("https://api.ipify.org?format=json");
+    if (!ipRes.ok) throw new Error("IP lookup failed");
+    const { ip } = await ipRes.json();
+
+    const workerUrl = `https://worker1.mrcreamy112233.workers.dev/?ip=${encodeURIComponent(ip)}`;
+    const wRes = await fetch(workerUrl, { method: "GET" });
+    if (!wRes.ok) throw new Error(`Worker error ${wRes.status}`);
+    const data = await wRes.json();
+    const country = data && data.country ? String(data.country).toLowerCase() : "unknown";
+    if (country == "pk")
+      document.getElementById("remit").href = "#";
+    else
+      document.getElementById("remit").href = `https://www.remitly.com/${country}/en/providers-pakistan/send-money-to-jazzcash`;
+  } catch (err) {
+    console.error(err);
+    document.getElementById("remit").href = "https://www.remitly.com/us/en/providers-pakistan/send-money-to-jazzcash";
+  }
+});
+
+</script>
+
 </html>
